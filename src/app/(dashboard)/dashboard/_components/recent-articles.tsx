@@ -118,7 +118,7 @@ const RecentArticles = () => {
                             | "Approved"
                             | "Published"
                             | "Archived"
-                            | "Revision"
+                            | "Needs Revision"
                             | "Rejected"
                         }
                       />

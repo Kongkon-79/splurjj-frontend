@@ -1304,7 +1304,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar {...props} className="w-[280px]">
-      <SidebarHeader>
+      <SidebarHeader className="pb-5">
         <SidebarMenu>
           <SidebarMenuItem>
             <div className="flex items-center">
@@ -1325,7 +1325,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               </Link>
             </div>
           </SidebarMenuItem>
-          <SidebarMenuItem className="mt-2">
+          {/* <SidebarMenuItem className="mt-5">
             <SidebarMenuButton
               asChild
               isActive={isRouteActive("/dashboard")}
@@ -1343,21 +1343,46 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </span>
               </Link>
             </SidebarMenuButton>
-          </SidebarMenuItem>
+          </SidebarMenuItem> */}
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent>
-        <SidebarGroup>
+      <SidebarContent className="space-y-2">
+        <SidebarGroup className="py-0 ">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                className="py-0 !mt-4"
+                asChild
+                isActive={isRouteActive("/dashboard")}
+                tooltip="Dashboard"
+              >
+                <Link href="/dashboard" className="">
+                  <Image
+                    src="/assets/dashboard/dashboard.png"
+                    alt="dashboard"
+                    width={20}
+                    height={20}
+                  />
+                  <span className="text-lg font-bold leading-[120%] font-poppins text-[#131313] dark:text-white">
+                    Dashboard
+                  </span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroup>
+        <SidebarGroup className="py-0">
           <SidebarMenu>
             {(isAdmin || isEditor || isAuthor) && (
               <SidebarMenuItem>
                 <SidebarMenuButton
+                  className="py-0  mb-[4px] "
                   asChild
                   isActive={isRouteActive("/dashboard/add-category")}
                   tooltip="Category Lists"
                 >
-                  <Link href="/dashboard/add-category">
+                  <Link href="/dashboard/add-category" className="">
                     <Image
                       src="/assets/dashboard/categories.png"
                       alt="category"
@@ -1381,7 +1406,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           className="group/collapsible"
         >
           <SidebarGroup>
-            <SidebarGroupLabel asChild>
+            <SidebarGroupLabel
+              asChild
+              className="group-data-[collapsible=icon]:opacity-100"
+            >
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip="Content Management">
                   <Image
@@ -1647,7 +1675,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             className="group/collapsible"
           >
             <SidebarGroup>
-              <SidebarGroupLabel asChild>
+              <SidebarGroupLabel
+                asChild
+                className="group-data-[collapsible=icon]:opacity-100"
+              >
                 <CollapsibleTrigger asChild>
                   <SidebarMenuButton tooltip="Ad Management">
                     <Image
@@ -1725,7 +1756,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           className="group/collapsible"
         >
           <SidebarGroup>
-            <SidebarGroupLabel asChild>
+            <SidebarGroupLabel
+              asChild
+              className="group-data-[collapsible=icon]:opacity-100"
+            >
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip="Settings">
                   <Image
@@ -1733,6 +1767,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     alt="settings"
                     width={20}
                     height={20}
+                    className="opacity-100"
                   />
                   <span className="text-lg font-bold leading-[120%] font-poppins text-[#131313] dark:text-white">
                     Settings
@@ -1820,7 +1855,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             className="group/collapsible"
           >
             <SidebarGroup>
-              <SidebarGroupLabel asChild>
+              <SidebarGroupLabel
+                asChild
+                className="group-data-[collapsible=icon]:opacity-100"
+              >
                 <CollapsibleTrigger asChild>
                   <SidebarMenuButton tooltip="Theme Settings">
                     <Image

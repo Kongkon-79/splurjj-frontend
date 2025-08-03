@@ -138,7 +138,7 @@ export default function ContentTable({
                           | "Approved"
                           | "Published"
                           | "Archived"
-                          | "Revision"
+                          | "Needs Revision"
                           | "Rejected"
                       }
                     />
