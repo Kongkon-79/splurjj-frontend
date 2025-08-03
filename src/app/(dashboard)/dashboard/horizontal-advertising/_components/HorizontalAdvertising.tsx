@@ -239,7 +239,7 @@ export default function HorizontalAdvertising() {
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        className="h-[150px] w-full text-black"
+                        className="h-[150px] w-full text-black dark:text-black"
                         placeholder="Enter Embed Code"
                         {...field}
                         disabled={leftSideActive}

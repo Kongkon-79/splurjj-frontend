@@ -131,9 +131,9 @@ leading-[120%] p-4 outline-none ring-0 focus:outline-none focus:ring-0"
                       tabIndex={-1}
                     >
                       {showPassword ? (
-                        <EyeOff className="w-5 h-5 text-black dark:text-white" />
+                        <EyeOff className="w-5 h-5 text-black dark:text-black" />
                       ) : (
-                        <Eye className="w-5 h-5 text-black dark:text-white" />
+                        <Eye className="w-5 h-5 text-black dark:text-black" />
                       )}
                     </button>
                   </div>
@@ -190,12 +190,14 @@ leading-[120%] p-4 outline-none ring-0 focus:outline-none focus:ring-0"
         {/* sign up link  */}
         <div className="text-center mt-6 md:mt-8 ">
           <p className="text-base text-[#272727] dark:text-white  font-normal leading-[150%] tracking-[0%]">
-            <span className="text-[#272727] dark:text-white">Don’t have an account?</span> 
+            <span className="text-[#272727] dark:text-white">
+              Don’t have an account?
+            </span>
             <Link
               href="/sign-up"
               className="text-[#0253F7]  hover:underline font-medium pl-2"
             >
-               Sign Up
+              Sign Up
             </Link>
           </p>
         </div>

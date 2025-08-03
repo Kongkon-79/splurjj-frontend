@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type React from "react";
-// import Image from "next/image";
 import Link from "next/link";
 import {
   DropdownMenu,
@@ -14,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import LogoutModal from "@/components/shared/modals/LogoutModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 interface UserProfileData {
@@ -43,10 +42,24 @@ export type HeaderResponse = {
 
 export default function DashboardHeader() {
   const [logoutModalOpen, setLogoutModalOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const session = useSession();
   const role = session?.data?.user?.role || "Admin";
 
   const token = (session?.data?.user as { token?: string })?.token;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handLogout = async () => {
     try {
@@ -71,44 +84,14 @@ export default function DashboardHeader() {
       }).then((res) => res.json()),
   });
 
-  // header api integration
-
-  // const { data: headerData } = useQuery<HeaderResponse>({
-  //   queryKey: ["header"],
-  //   queryFn: () =>
-  //     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/header`, {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     }).then((res) => res.json()),
-  // });
-
-  // console.log(headerData?.data);
-
   return (
-    <header className=" px-6 py-4">
+    // <header className=" px-6 py-4 sticky top-0 z-50">
+    <header
+      className={`px-4 py-4 sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white dark:bg-[#1f1f1f] shadow-sm" : "bg-transparent"
+      }`}
+    >
       <div className="flex items-center justify-end w-full">
-        {/* Logo Section */}
-        {/* <div className="flex items-center">
-          <div className="">
-            <Link href="/">
-              {headerData?.data?.logo ? (
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${headerData.data.logo}`}
-                  alt="logo"
-                  width={90}
-                  height={55}
-                  className="w-[90px] h-[55px] object-contain"
-                />
-              ) : (
-                <h2 className="text-2xl text-black font-bold leading-normal">
-                  LOGO
-                </h2>
-              )}
-            </Link>
-          </div>
-        </div> */}
-
         <div className="flex items-center justify-center gap-4">
           {/* theme toggle  */}
           <ThemeToggle />
@@ -169,8 +152,6 @@ export default function DashboardHeader() {
     </header>
   );
 }
-
-
 
 // "use client";
 // import ThemeToggle from "@/app/theme-toggle";
