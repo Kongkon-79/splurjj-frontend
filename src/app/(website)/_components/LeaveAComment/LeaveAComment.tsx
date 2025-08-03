@@ -121,7 +121,7 @@ export function LeaveAComment({ UserEmail, blogId }: LeaveACommentProps) {
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Write Comments"
+                      placeholder="Write Comment"
                       className="h-[150px] text-lg md:text-xl font-semibold  leading-[120%] tracking-[0%] text-black placeholder:text-[#929292] border-[1.5px] border-secondary rounded-[8px]"
                       disabled={mutation.isPending} // Disable textarea during submission
                       {...field}

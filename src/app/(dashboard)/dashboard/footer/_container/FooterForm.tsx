@@ -190,7 +190,7 @@ export function FooterForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-base font-bold text-black">
-                        Add Backgorund Color
+                        Add Background Color
                       </FormLabel>
                       <FormControl>
                         <ColorPicker

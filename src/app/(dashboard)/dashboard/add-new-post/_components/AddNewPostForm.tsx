@@ -157,7 +157,7 @@ export default function AddNewPostForm() {
     const files = event.target.files;
     if (files && files.length > 0) {
       const validFiles = Array.from(files).filter((file) => {
-        const validType = ["image/png", "image/jpeg", "image/gif"].includes(
+        const validType = ["image/png", "image/jpeg", "image/gif", "image/jpg", "image/webp", "image/avif"].includes(
           file.type
         );
         const validSize = file.size <= 10 * 1024 * 1024; // 10MB
@@ -165,7 +165,7 @@ export default function AddNewPostForm() {
       });
 
       if (validFiles.length === 0) {
-        toast.error("Invalid file type or size (max 10MB, PNG/JPG/GIF)");
+        toast.error("Invalid file type or size (max 10MB, PNG/JPG/GIF/WEBP/AVIF)");
         return;
       }
 
@@ -216,8 +216,6 @@ export default function AddNewPostForm() {
     mutationKey: ["add-content"],
     mutationFn: async (formData: FormData) => {
       const formDataToSend = new FormData();
-      // formDataToSend.append("category_id", categoryId.toString());
-      // formDataToSend.append("subcategory_id", subcategoryId.toString());
       formDataToSend.append("category_id", formData.category_id);
       formDataToSend.append("subcategory_id", formData.subcategory_id);
       formDataToSend.append("heading", formData.heading);
@@ -623,7 +621,7 @@ export default function AddNewPostForm() {
                                     Click to upload
                                   </p>
                                   <p className="text-xs text-gray-500 dark:text-black">
-                                    PNG, JPG, GIF (MAX. 10MB)
+                                    PNG, JPG, GIF, WEBP, AVIF (MAX. 10MB)
                                   </p>
                                 </div>
                                 <input
