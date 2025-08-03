@@ -132,7 +132,7 @@ const ContentStatusDropDown = ({
           className="cursor-pointer dark:text-black"
           onClick={() => handleStatusChange("Needs Revision")}
         >
-          Needs Needs Revision
+          Needs Revision
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer dark:text-black"
