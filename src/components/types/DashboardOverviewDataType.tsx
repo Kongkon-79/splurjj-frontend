@@ -49,7 +49,7 @@ export interface ContentItem {
     | "Approved"
     | "Published"
     | "Archived"
-    | "Revision"
+    | "Needs Revision"
     | "Rejected"
     | string;
   image2: string[];

@@ -68,7 +68,7 @@
 //     | "Approved"
 //     | "Published"
 //     | "Archived"
-//     | "Revision"
+//     | "Needs Revision"
 //     | "Rejected"
 //     | string;
 // };
@@ -132,7 +132,7 @@ export type ContentItem = {
     | "Approved"
     | "Published"
     | "Archived"
-    | "Revision"
+    | "Needs Revision"
     | "Rejected"
     | string;
 };

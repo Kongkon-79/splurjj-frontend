@@ -17,7 +17,7 @@ type StatusDropdownProps = {
     | "Approved"
     | "Published"
     | "Archived"
-    | "Revision"
+    | "Needs Revision"
     | "Rejected";
 };
 
@@ -31,7 +31,7 @@ const ContentStatusDropDown = ({
     | "Approved"
     | "Published"
     | "Archived"
-    | "Revision"
+    | "Needs Revision"
     | "Rejected"
   >(initialStatus);
   const token = useAuthToken();
@@ -44,7 +44,7 @@ const ContentStatusDropDown = ({
       | "Approved"
       | "Published"
       | "Archived"
-      | "Revision"
+      | "Needs Revision"
       | "Rejected"
   ) => {
     setStatus(newStatus); // Optimistic update
@@ -130,9 +130,9 @@ const ContentStatusDropDown = ({
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer dark:text-black"
-          onClick={() => handleStatusChange("Revision")}
+          onClick={() => handleStatusChange("Needs Revision")}
         >
-          Needs Revision
+          Needs Needs Revision
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer dark:text-black"
