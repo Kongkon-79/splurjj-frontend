@@ -5,6 +5,7 @@ import { DashboardCardSkeleton } from "@/components/ui/DashboardCardSkeleton";
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { GoDotFill } from "react-icons/go";
 
@@ -46,37 +47,46 @@ const DashboardOverviewContainer = () => {
 
   return (
     <div>
-      <div>
-        <p className="text-2xl font-bold text-[#131313] dark:white-text leading-[120%] tracking-[0%] ">
-          Dashboard Overview
-        </p>
-        <p className="text-base font-medium text-[#929292] leading-[120%] tracking-[0%]  pt-[14px]">
-          Dashboard
-        </p>
+      <div className="w-full flex items-center justify-between">
+        <div>
+          <p className="text-2xl font-bold text-[#131313] dark:white-text leading-[120%] tracking-[0%] ">
+            Dashboard Overview
+          </p>
+          <p className="text-base font-medium text-[#929292] leading-[120%] tracking-[0%]  pt-[14px]">
+            Dashboard
+          </p>
+        </div>
+        <div>
+          <Link href="/dashboard/add-new-post">
+            <button className="text-white bg-[#0253F7] py-1 px-4 rounded-lg text-lg font-medium leading-normal ">
+              Add New Post
+            </button>
+          </Link>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
         {/* first div  */}
-          {!isAuthor && (
-            <div className="flex items-center justify-between bg-white rounded-[6px] shadow-md p-8">
-              <div>
-                <h3 className="text-xl font-bold text-[#131313] dark:text-black leading-[120%] tracking-[0%]">
-                  Total Revenue
-                </h3>
-                <p className="flex items-center gap-1 text-lg font-medium text-[#424242] dark:text-black leading-[120%] tracking-[0%] pt-2">
-                  <GoDotFill className="text-[#DDE067] w-5 h-5" /> 00000
-                </p>
-              </div>
-              <div>
-                <Image
-                  src="/assets/dashboard/revenue.png"
-                  alt="revenue icon"
-                  width={48}
-                  height={48}
-                />
-              </div>
+        {!isAuthor && (
+          <div className="flex items-center justify-between bg-white rounded-[6px] shadow-md p-8">
+            <div>
+              <h3 className="text-xl font-bold text-[#131313] dark:text-black leading-[120%] tracking-[0%]">
+                Total Revenue
+              </h3>
+              <p className="flex items-center gap-1 text-lg font-medium text-[#424242] dark:text-black leading-[120%] tracking-[0%] pt-2">
+                <GoDotFill className="text-[#DDE067] w-5 h-5" /> 00000
+              </p>
             </div>
-          )}
+            <div>
+              <Image
+                src="/assets/dashboard/revenue.png"
+                alt="revenue icon"
+                width={48}
+                height={48}
+              />
+            </div>
+          </div>
+        )}
 
         {/* second div  */}
         <div className="flex items-center justify-between bg-white rounded-[6px] shadow-md p-8">

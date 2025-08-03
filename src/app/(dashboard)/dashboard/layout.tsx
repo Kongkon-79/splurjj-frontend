@@ -46,7 +46,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         
         <SidebarInset className="flex flex-col">
           {/* Header Section */}
-          <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
+          <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <SidebarTrigger className="-ml-1 hover:bg-accent transition-colors" />
             <Separator orientation="vertical" className="h-6" />
             <div className="flex-1">

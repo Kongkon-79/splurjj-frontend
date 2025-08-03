@@ -242,7 +242,7 @@ export default function VerticalAdvertising() {
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        className="h-[150px] w-full"
+                        className="h-[150px] w-full text-black dark:text-black"
                         placeholder="Enter Embed Code"
                         {...field}
                         disabled={leftSideActive}
